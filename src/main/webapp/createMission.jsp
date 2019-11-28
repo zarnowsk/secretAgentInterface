@@ -20,7 +20,7 @@
         <h1>Create a Mission</h1>
 
         <!-- Input form for mission details -->
-        <form action="" method="POST">
+        <form action="CreateMission.do" method="POST">
 
             Mission Title: <input type="text" name="missionTitle" required><br>
             Select the agent: <select>
