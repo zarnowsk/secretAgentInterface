@@ -23,7 +23,7 @@
         <form action="CreateMission.do" method="POST">
 
             Mission Title: <input type="text" name="missionTitle" required><br>
-            Select the agent: <select>
+            Select the agent: <select name="agent">
 
                 <!-- Using JSTL to retrieve context attribute holding agent
                      names and populate the drop down list-->
@@ -43,7 +43,7 @@
             </c:forEach>
 
             <!-- Optional mission gadget entry field -->
-            Other Gadget <input type="text" name="otherGadget">
+            Other Gadget <input type="text" name="gadgets">
             <br><br>
             
             <!-- Submit button -->
