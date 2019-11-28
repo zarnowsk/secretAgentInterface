@@ -1,11 +1,19 @@
 package com.michzarnowski.michal_zarnowski_a3.servlets;
 
+import com.michzarnowski.michal_zarnowski_a3.model.Gadget;
+import com.michzarnowski.michal_zarnowski_a3.model.Mission;
+import com.michzarnowski.michal_zarnowski_a3.model.MissionList;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,13 +36,64 @@ public class CreateMission extends HttpServlet {
         //Retrieve form parameters entered by the user inside createMission.jsp
         String missionTitle = request.getParameter("missionTitle");
         String agent = request.getParameter("agent");
-        String[] gadgets = request.getParameterValues("gadgets");
+        String[] rawGadgets = request.getParameterValues("gadgets");
         
         //Re-dispatch if mission title or agent name aren't valid
         if (missionTitle == null || missionTitle.length() == 0 ||
                 agent == null || agent.length() == 0) {
             // IMPLEMENT !!!!
         }
+        
+        //Populate an ArrayList with mission gadgets
+        ArrayList<Gadget> gadgets = new ArrayList<>();
+        for (String gadget : rawGadgets) {
+            if(gadget.trim().length() > 1) {
+                gadgets.add(new Gadget(gadget.trim()));
+            }
+        }
+        System.out.println(gadgets.size());
+        
+        //Create new mission with acquired parameters
+        Mission tempMission = new Mission(missionTitle, gadgets);
+        
+        //Retrieve mission lists from the session
+        HttpSession session = request.getSession();
+        ArrayList<MissionList> missionLists = 
+                (ArrayList<MissionList>)session.getAttribute("missionLists");
+        
+        //Find mission list for required agent or create a new one
+        MissionList tempMissionList = null;
+        
+        if (missionLists != null) {
+            for (MissionList missionList : missionLists) {
+                if (missionList.getAgent().equals(agent)) {
+                    tempMissionList = missionList;
+                }
+            }
+        } else {
+            missionLists = new ArrayList<>();
+        }
+        
+        //If agent's mission list wasn't inside the session, create a new one
+        if (tempMissionList == null) {
+            tempMissionList = new MissionList();
+            tempMissionList.setAgent(agent);
+            tempMissionList.setMissions(new ArrayList<Mission>());
+        }
+
+        //Add new mission to agent's list
+        tempMissionList.addMission(tempMission);
+        
+        //Add new mission list to session's mission lists
+        missionLists.add(tempMissionList);
+        session.setAttribute("missionLists", missionLists);
+        
+        //Set request attribute agent to who's mission we've just added
+        request.setAttribute("agent", agent);
+        
+        //Dispatch to viewMissions.jsp
+        RequestDispatcher rd = request.getRequestDispatcher("viewMissions.jsp");
+        rd.forward(request, response);
         
     }
 
