@@ -32,7 +32,7 @@
 
         <!-- Allow the user to view current missions for selected agent -->
         <form action="viewMissions.jsp" method="GET">
-            Select an agent: <select>
+            Select an agent: <select name="agent">
 
                 <!-- Using JSTL to retrieve context attribute holding agent
                      names and populate the drop down list-->
