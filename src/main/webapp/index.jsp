@@ -17,6 +17,13 @@
         <title>Spy App</title>
     </head>
     <body>
+        
+        <!-- Check if an agent's mission list has just been deleted, if so, 
+             display confirmation message -->
+        <c:if test="${deletedAgent != null}" >
+            <h1>Missions deleted for ${deletedAgent}</h1>
+        </c:if>
+        
         <h1>Our Super Cool Spy App</h1>
         
         <h2>Create a Mission</h2>
