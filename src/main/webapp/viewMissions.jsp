@@ -44,7 +44,8 @@
         <c:if test="${missionCounter > 0}" >
             <br>
             <form action="DeleteMission.do" method="POST">
-                <input type="submit" value="Delete missions for ${agent}">
+                <input type="hidden" name="agent" value="${agent}" >
+                <input type="submit" value="Delete missions for ${agent}" >
             </form>
             <br><br>
         </c:if>
