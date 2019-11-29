@@ -4,10 +4,7 @@ import com.michzarnowski.michal_zarnowski_a3.model.Gadget;
 import com.michzarnowski.michal_zarnowski_a3.model.Mission;
 import com.michzarnowski.michal_zarnowski_a3.model.MissionList;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Http servlet handling addition of mission to an agent. Mission parameters 
+ * are required from requesting form and used to create a mission object. 
+ * Mission is then added to agent's mission list and saved inside the session.
+ * Request is then dispatched to viewMissions.jsp
  * @author Michal Zarnowski
  */
 public class CreateMission extends HttpServlet {
