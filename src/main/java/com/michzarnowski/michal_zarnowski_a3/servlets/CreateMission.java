@@ -51,7 +51,6 @@ public class CreateMission extends HttpServlet {
                 gadgets.add(new Gadget(gadget.trim()));
             }
         }
-        System.out.println(gadgets.size());
         
         //Create new mission with acquired parameters
         Mission tempMission = new Mission(missionTitle, gadgets);
