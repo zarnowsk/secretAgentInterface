@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib  prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
 
 <c:if test="${agent == null}">
     <c:set var="agent" value="${param.agent}" scope="request" />
@@ -45,7 +46,7 @@
             <br>
             <form action="DeleteMission.do" method="POST">
                 <input type="hidden" name="agent" value="${agent}" >
-                <input type="submit" value="Delete missions for ${agent}" >
+                <input type="submit" value="Delete missions for ${fn:trim(agent)}" >
             </form>
             <br><br>
         </c:if>
