@@ -41,7 +41,8 @@ public class CreateMission extends HttpServlet {
         //Re-dispatch if mission title or agent name aren't valid
         if (missionTitle == null || missionTitle.length() == 0 ||
                 agent == null || agent.length() == 0) {
-            // IMPLEMENT !!!!
+            RequestDispatcher erd = request.getRequestDispatcher("errorPage.jsp");
+            erd.forward(request, response);
         }
         
         //Populate an ArrayList with mission gadgets
