@@ -23,9 +23,17 @@
         <servlet-name>CreateMission</servlet-name>
         <servlet-class>com.michzarnowski.michal_zarnowski_a3.servlets.CreateMission</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteMission</servlet-name>
+        <servlet-class>com.michzarnowski.michal_zarnowski_a3.servlets.DeleteMission</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CreateMission</servlet-name>
         <url-pattern>/CreateMission.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMission</servlet-name>
+        <url-pattern>/DeleteMission.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
