@@ -14,6 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' type='text/css' href='css/main.css' />
         <title>Create New Mission</title>
     </head>
     <body>
@@ -22,8 +23,8 @@
         <!-- Input form for mission details -->
         <form action="CreateMission.do" method="POST">
 
-            Mission Title: <input type="text" name="missionTitle" required><br>
-            Select the agent: <select name="agent">
+            Mission Title: <input type="text" name="missionTitle" class="input" required><br>
+            Select the agent: <select name="agent" class="select-field">
 
                 <!-- Using JSTL to retrieve context attribute holding agent
                      names and populate the drop down list-->
@@ -43,11 +44,11 @@
             </c:forEach>
 
             <!-- Optional mission gadget entry field -->
-            Other Gadget <input type="text" name="gadgets">
+            Other Gadget <input type="text" name="gadgets" class="input">
             <br><br>
             
             <!-- Submit button -->
-            <input type="submit" value="Create Mission">
+            <input type="submit" value="Create Mission" class="btn">
 
         </form>
 

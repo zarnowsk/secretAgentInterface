@@ -14,6 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' type='text/css' href='css/main.css' />
         <title>Spy App</title>
     </head>
     <body>
@@ -21,7 +22,7 @@
         <!-- Check if an agent's mission list has just been deleted, if so, 
              display confirmation message -->
         <c:if test="${deletedAgent != null}" >
-            <h1>Missions deleted for ${deletedAgent}</h1>
+            <h1 class="deleted">Missions deleted for ${deletedAgent}</h1>
         </c:if>
         
         <h1>Our Super Cool Spy App</h1>
@@ -30,7 +31,7 @@
 
         <!-- Allow the user to create a new mission -->
         <form action="createMission.jsp" method="GET">
-            <input type="submit" value="Create a Mission">
+            <input type="submit" value="Create a Mission" class="btn">
         </form>
 
         <br>
@@ -39,7 +40,7 @@
 
         <!-- Allow the user to view current missions for selected agent -->
         <form action="viewMissions.jsp" method="GET">
-            Select an agent: <select name="agent">
+            Select an agent: <select name="agent" class="select-field">
 
                 <!-- Using JSTL to retrieve context attribute holding agent
                      names and populate the drop down list-->
@@ -47,7 +48,7 @@
                 <option value="${agent}">${agent}</option>                    
                 </c:forEach>
 
-            </select> <input type="submit" value="Go">
+            </select> <input type="submit" value="Go" class="btn">
         </form>
         
     </body>

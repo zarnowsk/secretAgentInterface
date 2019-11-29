@@ -31,6 +31,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' type='text/css' href='css/main.css' />
         <title>Mission Log</title>
     </head>
     <body>
@@ -65,7 +66,7 @@
             <form action="DeleteMission.do" method="POST">
                 <input type="hidden" name="agent" value="${agent}" >
                 <%-- Using trim function for white spaces in agent's name --%>
-                <input type="submit" value="Delete missions for ${fn:trim(agent)}" >
+                <input type="submit" value="Delete missions for ${fn:trim(agent)}" class="btn">
             </form>
             <br><br>
         </c:if>
