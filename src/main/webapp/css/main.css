@@ -1,0 +1,75 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-Nov-2019, 8:39:17 PM
+    Author     : Michal Zarnowski
+*/
+
+body {
+  background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url("../media/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center; 
+  background-size: cover;
+  
+  font-family: 'Marvel', sans-serif;
+  font-size: 35px;
+  color: #dbdbdb;
+  text-align: center;
+}
+
+h1 {
+  color: #c9040d;  
+}
+
+.deleted {
+    color: #e6c809;
+}
+
+.btn {
+    font-size: 20px;
+    position: relative;
+    background: none;
+    color: #dbdbdb;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.2em solid #575757;
+    padding: 0.5em 1em;
+}
+
+.btn:hover {
+    background: #0f1626;
+    border: 0.2em solid #cc0c36;
+}
+
+.select-field{
+    color: #dbdbdb;
+    background-color: #333333;
+    width: 10%;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+    font-size: 25px;
+}
+
+.input {
+    color: #dbdbdb;
+    background-color: #333333;
+    width: 20%;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+    font-size: 25px;
+    margin: 10px;
+}
+
+
