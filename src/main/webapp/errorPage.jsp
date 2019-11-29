@@ -15,6 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <br><br><br> <br><br><br>
         <h1>Oops something went wrong!</h1>
         <h2>Please try again with a mission title and agent name</h2>
         <br><br>
