@@ -15,6 +15,7 @@
         <c:set var="missionList" value="${tempMissionList}" scope="request" />
     </c:if>
 </c:forEach>
+<c:set var="missionCounter" value="0" scope="request" />
 
 <!DOCTYPE html>
 <html>
@@ -30,15 +31,23 @@
         </c:if>
 
         <c:forEach var="mission" items="${missionList.missions}">
-            <h2>${mission.name}</h2>
+            <c:set var="missionCounter" value="${missionCounter + 1}" />
+            <h2>Mission ${missionCounter}: ${mission.name}</h2>
             Gadgets:
             <ul>
                 <c:forEach var="gadget" items="${mission.gadgets}">
                     <li>${gadget.name}</li>                    
-                </c:forEach>
+                    </c:forEach>
             </ul>
         </c:forEach>
-            
+
+        <c:if test="${missionCounter > 0}" >
+            <br>
+            <form action="DeleteMission.do" method="POST">
+                <input type="submit" value="Delete missions for ${agent}">
+            </form>
+            <br><br>
+        </c:if>
         <a href="index.jsp">Back to Home Page</a>
     </body>
 </html>
