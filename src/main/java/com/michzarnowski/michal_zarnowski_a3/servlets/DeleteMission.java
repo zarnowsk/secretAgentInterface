@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+ * Http servlet handling removal of the mission list for specific agent. Once
+ * required mission list is removed from the session, the user is dispatched
+ * back to the home page.
  * @author Michal Zarnowski
  */
 public class DeleteMission extends HttpServlet {
@@ -45,9 +47,17 @@ public class DeleteMission extends HttpServlet {
             }
         }
         
+        //Remove required mission list from the ArrayList of all mission lists
         missionLists.remove(tempMissionList);
+        
+        //Re-set the session attribute
         session.setAttribute("missionLists", missionLists);
         
+        /* Set request attribute with agent's name to display confirmation message
+           on dispatched page */
+        request.setAttribute("deletedAgent", agentName);
+        
+        //Dispatch back to index.jsp
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
     }
