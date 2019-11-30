@@ -35,6 +35,8 @@
             </select>
 
             <h2>Select the Gadgets</h2>
+            
+            <div id="gadgetList">
 
             <!-- Using JSTL to retrieve context attribute holding gadgets
                  and populate the checkboxes-->
@@ -45,6 +47,8 @@
 
             <!-- Optional mission gadget entry field -->
             Other Gadget <input type="text" name="gadgets" class="input">
+            </div>
+            
             <br><br>
             
             <!-- Submit button -->
