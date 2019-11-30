@@ -50,6 +50,7 @@
             <!-- Increment mission counter for accurate display -->
             <c:set var="missionCounter" value="${missionCounter + 1}" />
             <h2>Mission ${missionCounter}: ${mission.name}</h2>
+            <div id="gadgetList">
             Gadgets:
             <ul>
                 <!-- Cycle through and display all mission gadgets -->
@@ -57,6 +58,7 @@
                     <li>${gadget.name}</li>                    
                     </c:forEach>
             </ul>
+            </div>
         </c:forEach>
 
         <!-- Check if there are missions being displayed, if so, allow the 
@@ -72,6 +74,6 @@
         </c:if>
             
         <!-- Return to home page -->
-        <a href="index.jsp">Back to Home Page</a>
+        <button class="btn" onclick='location.href="index.jsp"'>Back to Home Page</button>
     </body>
 </html>
