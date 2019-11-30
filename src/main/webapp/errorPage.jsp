@@ -19,6 +19,5 @@
         <h1>Oops something went wrong!</h1>
         <h2>Please try again with a mission title and agent name</h2>
         <br><br>
-        <a href="index.jsp">Try again</a>
-    </body>
+        <button class="btn" onclick='location.href="index.jsp"'>Try again</button>
 </html>
