@@ -16,9 +16,15 @@
             Switchblade Shoe
         </param-value>
     </context-param>
+    <context-param>
+        <param-name>filterWords</param-name>
+        <param-value>Queen:Cigar</param-value>
+    </context-param>
+    
     <listener>
         <listener-class>com.michzarnowski.michal_zarnowski_a3.listeners.AgentContextListener</listener-class>
     </listener>
+    
     <servlet>
         <servlet-name>CreateMission</servlet-name>
         <servlet-class>com.michzarnowski.michal_zarnowski_a3.servlets.CreateMission</servlet-class>
@@ -35,6 +41,17 @@
         <servlet-name>DeleteMission</servlet-name>
         <url-pattern>/DeleteMission.do</url-pattern>
     </servlet-mapping>
+    
+    <filter>
+        <filter-name>CensorFilter</filter-name>
+        <filter-class>com.michzarnowski.michal_zarnowski_a3.filters.CensorFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CensorFilter</filter-name>
+        <url-pattern>/viewMissions.jsp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    
     <session-config>
         <session-timeout>
             30
